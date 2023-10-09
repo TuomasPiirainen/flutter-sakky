@@ -1,30 +1,50 @@
+// 1. Dart projekti alkaa lib/main.dart tiedostosta
+// 2. Suoritus alkaa main-funktiosta. Lisää tähän tiedostoon main funktio.
+// 3. Flutter käynnistyy runApp-funktiosta. Lisää se funktio.
+// 4. Flutter käyttää Material Design UI-kirjastoa, lisää sen widget.
+// 5. Käyttöliittymän rakennus alkaa jostakin widgetistä, lisää se widget
+// 6. Lisää tekstiä, joka on keskitetty.
+
 import 'package:flutter/material.dart';
 
-// Koodi rakentuu kahdesta erilaisista "sanoista"
-// 1. keywords, ohjelmointikieli määrittelee
-// 2. identifiers, ohjelmoijat määrittelevät
-
 void main() {
-  // Määritellään funktio, tämä "main" on dart kielen aloituspiste
-
-  // funktion body
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'), // pilkku, sulkujen jälkeen
+        body: Container(
+          // Abstract luokkaa ei voi luoda objectia, siitä vaan peritään asioita
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.greenAccent, Colors.orangeAccent],
+              begin: Alignment.topLeft, 
+              end: Alignment.bottomRight// ctrl + alt
+              ,),
+              ),
+          child: const Center(
+            child: Text( // isompi fontti ja valkoinen väri
+              'Hello, world', 
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 28,
+              )
+               ), // ctrl + spacebar
+          ),
         ),
       ),
     ),
-  ); // Suoritetaan flutter frameworkin funktio
-} // const, data on immutable (ei voi muuttua)
-
-void add({num1, num2}) {
-  // määritellään //aaltosulkeet//
-  num1 + num2; // 3 ja 5
+  );
 }
 
-void test() {
-  // suoritetaan
-  add(num1: 3, num2: 5);
-}
+// Flutter on type-safe kieli. type, tarkoittaa datatyyppiä.
+// Data           -> Data tyypin nimi
+// 'Hello world!' -> string / Object
+// 29             -> int / num / Object
+// MaterialApp    -> MetiralApp / Widget / Object
+// OmaLuokka      -> OmaLuokka / Widget / Object
+// OmaLuokkaWidget-> OmaLuokkaWidget / Widget / Object.
+
+// Luokilla voi tehdä omia datarakenteita tai datatyyppejä+
+
+// Luokka on kokoelma 1. dataa ja 2. toiminnallisuutta
+// 1. data on muuttujia / variables / properties
+// 2. toiminnallisuus on funktio / function / method
